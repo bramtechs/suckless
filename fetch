@@ -1,0 +1,6 @@
+#!/bin/bash
+rsync -a --delete ~/dev/suckless suckless
+rsync -a --delete ~/scripts scripts
+
+cp ~/.xinitrc .xinitrc 
+cp ~/.bashrc .bashrc
