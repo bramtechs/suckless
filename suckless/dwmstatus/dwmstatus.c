@@ -214,24 +214,24 @@ main(void)
 		return 1;
 	}
 
-	for (;;sleep(30)) {
-		//avgs = loadavg();
+	for (;;sleep(1)) {
+		avgs = loadavg();
 		bat = getbattery("/sys/class/power_supply/BAT0");
 		//tmar = mktimes("%H:%M", tzargentina);
 		//tmutc = mktimes("%H:%M", tzutc);
-		tmbru = mktimes("KW %W %a %d %b %H:%M %Z %Y", tzbrussels);
+		tmbru = mktimes("%a %d %b %Y %H:%M:%S", tzbrussels);
 		//kbmap = execscript("setxkbmap -query | grep layout | cut -d':' -f 2- | tr -d ' '");
 		t0 = gettemperature("/sys/devices/virtual/thermal/thermal_zone0", "temp");
 		//t1 = gettemperature("/sys/devices/virtual/thermal/thermal_zone1", "temp");
 
-		status = smprintf("Temp %s Battery %s | %s",
-				t0, bat, tmbru);
+		status = smprintf("Load %s Temp %s Battery %s | %s",
+			avgs, t0, bat, tmbru);
 		setstatus(status);
 
 		//free(kbmap);
 		free(t0);
 		//free(t1);
-		//free(avgs);
+		free(avgs);
 		free(bat);
 		//free(tmar);
 		//free(tmutc);
