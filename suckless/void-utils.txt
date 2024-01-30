@@ -1,2 +1,0 @@
-- xbps: void package manager
-- nmtui: Network settings

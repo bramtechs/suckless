@@ -1,0 +1,5 @@
+#!/bin/bash
+
+CLONE_DIR="$HOME/dev/suckless"
+
+PATH="$CLONE_DIR/dwmstatus:$CLONE_DIR/dmenu:/$CLONE_DIR/dwm:$PATH"
